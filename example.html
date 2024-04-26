@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Score Sections with Explanation to the Right</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Text Document:</h2>
+    <textarea class="textbox"
+        placeholder="Enter your document or detailed explanation here... This is a much longer description for clarity. Add your detailed text or evaluation metrics."></textarea>
+
+    <!-- Button to run all rating scores -->
+    <button class="button button-run-all">Run Rating Score For All ⭐🤖</button>
+
+    <div class="score-section" id="score-section">
+        <!-- Initial score section -->
+        <div class="score-input">
+            <div class="score-column">
+                <div class="stars">☆ ☆ ☆ ☆ ☆</div>
+                <button class="button button-stats">🤖📊</button>
+            </div>
+            <textarea class="text-area" placeholder="Your evaluation metric here..."></textarea>
+            <div class="explanation-section">Explanation for the score or additional information goes here.</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
