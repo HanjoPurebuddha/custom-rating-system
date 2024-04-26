@@ -1,6 +1,6 @@
 # clj chatbot ui
 
-This is a clone of [chatbot-ui](https://github.com/mckaywrigley/chatbot-ui) built in [electric](https://github.com/hyperfiddle/electric) and [datahike](https://github.com/replikativ/datahike).
+A chatbot UI using OpenAI and clojure. This is a clone of [chatbot-ui](https://github.com/mckaywrigley/chatbot-ui) built in [electric](https://github.com/hyperfiddle/electric) and [datahike](https://github.com/replikativ/datahike).
 
 ## Run the application
 
