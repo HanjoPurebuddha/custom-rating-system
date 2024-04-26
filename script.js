@@ -1,6 +1,6 @@
 const scoreSection = document.getElementById('score-section');
 
-// Function to create a new score section with consistent formatting
+// Function to create a new score section
 function createNewScoreSection() {
     const newScoreInput = document.createElement('div');
     newScoreInput.className = 'score-input';
@@ -10,52 +10,49 @@ function createNewScoreSection() {
 
     const newStars = document.createElement('div');
     newStars.className = 'stars';
-    newStars.textContent = '☆☆☆☆☆'; // Default: no stars (empty)
+    newStars.textContent = '☆☆☆☆☆'; // Default: no stars
 
     const newTextArea = document.createElement('textarea');
     newTextArea.className = 'text-area';
-    newTextArea.placeholder = 'Your evaluation metric here...'; // Placeholder text
+    newTextArea.placeholder = 'Your evaluation metric here...'; // Placeholder for user input
 
     const newButtonStats = document.createElement('button');
     newButtonStats.className = 'button button-stats';
-    newButtonStats.textContent = '🤖📊'; // Statistics button text
+    newButtonStats.textContent = '🤖📊'; // Statistics button
 
     const newExplanation = document.createElement('div');
     newExplanation.className = 'explanation-section';
     newExplanation.textContent = 'Explanation for the score or additional information goes here.'; // Default explanation text
 
-    // Append components in the proper order
-    newScoreColumn.appendChild(newStars);
-    newScoreColumn.appendChild(newButtonStats);
+    newScoreColumn.appendChild(newStars); // Add stars to the column
+    newScoreColumn.appendChild(newButtonStats); // Add stats button
 
-    newScoreInput.appendChild(newScoreColumn);
-    newScoreInput.appendChild(newTextArea);
-    newScoreInput.appendChild(newExplanation);
+    newScoreInput.appendChild(newScoreColumn); // Add score column to input
+    newScoreInput.appendChild(newTextArea); // Add text area
+    newScoreInput.appendChild(newExplanation); // Add explanation section
 
-    scoreSection.appendChild(newScoreInput); // Add new score input to the score section
+    scoreSection.appendChild(newScoreInput); // Add new score section to scoreSection
 
-    assignEventListeners(); // Ensure event listeners are assigned to the new section
+    assignEventListeners(); // Reassign event listeners for the new section
 }
 
-// Function to assign event listeners for buttons and other interactions
+// Event listeners for various interactions
 function assignEventListeners() {
     // Event listener for "Run Rating Score For All" button
     const runAllButton = document.querySelector('.button-run-all');
     runAllButton.addEventListener('click', () => {
         const allStars = document.querySelectorAll('.stars');
-        const allExplanations = document.querySelectorAll('.explanation-section');
+        const allExplanations = document.queryurator.querySelectorAll('.explanation-section');
 
-        // Set all star ratings to 4/5 and update text
         allStars.forEach((starsElement) => {
-            starsElement.textContent = '⭐️⭐️⭐️⭐️☆'; // Adjust stars to 4/5 with emojis
+            starsElement.textContent = '⭐️⭐️⭐️⭐️☆'; // Set all star ratings to 4/5
         });
 
         allExplanations.forEach((explanation) => {
-            explanation.textContent = 'This is the updated explanation text after clicking the "Run Rating Score For All" button.'; // Change explanation text
+            explanation.textContent = 'Updated explanation text after clicking the "Run Rating Score For All" button.'; // Change explanation
         });
     });
 
-    // Event listener for individual stats buttons
     const statsButtons = document.querySelectorAll('.button-stats');
     statsButtons.forEach((button) => {
         button.addEventListener('click', (event) => {
@@ -63,19 +60,19 @@ function assignEventListeners() {
             const starsElement = parentScoreInput.querySelector('.stars');
             const explanationElement = parentScoreInput.querySelector('.explanation-section');
 
-            starsElement.textContent = '⭐️⭐️⭐️⭐️☆'; // Set to 4/5 with emojis
-            explanationElement.textContent = 'This is the updated text for this section after clicking the stats button.'; // Update explanation text
+            starsElement.textContent = '⭐️⭐️⭐️⭐️☆'; // Adjust to 4/5
+            explanationElement.textContent = 'Explanation after clicking the stats button.'; // Update explanation
         });
     });
 }
 
-// Add new score sections when there's input in the last text area
+// Create new score sections when there's input in the last text area
 scoreSection.addEventListener('input', (event) => {
-    const allTextAreas = [Array.from(document.querySelectorAll('.text-area'))];
+    const allTextAreas = Array.from(document.querySelectorAll('.text-area'));
     const lastTextArea = allTextAreas[allTextAreas.length - 1];
 
-    if (lastTextArea.value.trim() !== '') {
-        createNewScoreSection(); // Create a new score section when input is detected
+    if (event.target === lastTextArea && lastTextArea.value.trim() !== '') {
+        createNewScoreSection(); // Create a new score section when there's input in the last text box
     }
 });
 
