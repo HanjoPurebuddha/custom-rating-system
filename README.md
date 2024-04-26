@@ -6,7 +6,7 @@ A chatbot UI using OpenAI and clojure. This is a clone of [chatbot-ui](https://g
 
 
 
-`yarn` to install Tailwind and other javasscript dependencies
+`yarn` to install Tailwind and other javascript dependencies
 
 `npm install -g yarn`
 
